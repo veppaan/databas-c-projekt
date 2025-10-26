@@ -65,6 +65,14 @@ app.post("/results", async(req, res) => {
         return res.status(400).json(error);
     }
 });
+app.delete("/results/:id", async(req, res) => {
+    try{
+        const deleteRes = await Quiz.findByIdAndDelete(req.params.id);
+        res.json({message: "Quiz-result deleted: " + req.params.id});
+    }catch(error){
+        res.status(500).json(error);
+    }
+});
 
 app.listen(port, () => {
     console.log("Server is running on port: " + port);
