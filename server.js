@@ -25,12 +25,10 @@ mongoose.connect(process.env.DATABASE).then(() => {
 //Quiz Schema
 const QuizSchema = new mongoose.Schema({
     Username: {
-        type: String,
-        required: [true, "Du måste skicka med användarnamn!"]
+        type: String
     },
     Score: {
-        type: String,
-        required: [true, "Du måste skicka med ett resultat!"]
+        type: String
     },
     Date: {
         type: Date,
