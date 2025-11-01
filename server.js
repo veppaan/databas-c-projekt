@@ -67,13 +67,13 @@ app.post("/results", async(req, res) => {
         return res.status(400).json(error);
     }
 });
-//Ändrar resultat
+//Ändra resultat ska inte kunna gå så skriver ut ett meddelande
 app.put("/results/:id", async(req, res) => {
     try{
         //Uppdatera
-        const updatedResult = await Quiz.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        //Skriv ut meddelande
-        res.json({ message: "Resultat uppdaterad: " + updatedResult.username });
+        return res.status(405).json({
+            message: "You can not change a result!"
+        })
     } catch(error){
         //Serverfel
         return res.status(500).json(error);
