@@ -15,7 +15,7 @@ Användning:
 -------|----------|-------------|
 |GET | "/" | Visar ett välkomstmeddelande|
 |GET | "/results" | Hämta alla lagrade resultat|
-|POST| "/results" | Lägg till en bokning |
+|POST| "/results" | Lägg till ett resultat |
 |PUT| "/results/:id" | Ger bara ett meddelande då du inte kan ändra ett resultat |
 |DELETE | "/results/:id" | Radera ett resultat med angivet id|
 
