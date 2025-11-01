@@ -67,7 +67,7 @@ app.post("/results", async(req, res) => {
         return res.status(400).json(error);
     }
 });
-//Ändra resultat ska inte kunna gå så skriver ut ett meddelande
+//Att ändra resultat ska inte kunna gå så skriver ut ett meddelande
 app.put("/results/:id", async(req, res) => {
     try{
         //Uppdatera
