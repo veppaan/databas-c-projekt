@@ -56,7 +56,7 @@ app.get("/results", async(req, res) =>{
         return res.status(500).json(error);
     }
 });
-
+//Lägger till resultat
 app.post("/results", async(req, res) => {
     try{
         let result = await Quiz.create(req.body);
@@ -67,6 +67,19 @@ app.post("/results", async(req, res) => {
         return res.status(400).json(error);
     }
 });
+//Ändrar resultat
+app.put("/results/:id", async(req, res) => {
+    try{
+        //Uppdatera
+        const updatedResult = await Quiz.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        //Skriv ut meddelande
+        res.json({ message: "Resultat uppdaterad: " + updatedResult.username });
+    } catch(error){
+        //Serverfel
+        return res.status(500).json(error);
+    }
+})
+//Raderar resultat
 app.delete("/results/:id", async(req, res) => {
     try{
         const deleteRes = await Quiz.findByIdAndDelete(req.params.id);
